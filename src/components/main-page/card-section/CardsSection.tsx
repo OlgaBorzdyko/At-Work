@@ -14,27 +14,31 @@ const CardsSection = ({ users }) => {
     (user) => archivedUsers.includes(user.id) && !hiddenUsers.includes(user.id)
   )
   return (
-    <div className={styles.container}>
+    <div className={styles.wrapper}>
       <div>Активные</div>
-      {activeUsers.map((user: any) => (
-        <UserCard
-          activateUser={activateUser}
-          archiveUser={archiveUser}
-          hideUser={hideUser}
-          key={user.id}
-          user={user}
-        />
-      ))}
+      <div className={styles.container}>
+        {activeUsers.map((user: any) => (
+          <UserCard
+            activateUser={activateUser}
+            archiveUser={archiveUser}
+            hideUser={hideUser}
+            key={user.id}
+            user={user}
+          />
+        ))}
+      </div>
       <div>Архив</div>
-      {archivedUsersArr.map((user: any) => (
-        <UserCard
-          activateUser={activateUser}
-          archiveUser={archiveUser}
-          hideUser={hideUser}
-          key={user.id}
-          user={user}
-        />
-      ))}
+      <div className={styles.container}>
+        {archivedUsersArr.map((user: any) => (
+          <UserCard
+            activateUser={activateUser}
+            archiveUser={archiveUser}
+            hideUser={hideUser}
+            key={user.id}
+            user={user}
+          />
+        ))}
+      </div>
     </div>
   )
 }

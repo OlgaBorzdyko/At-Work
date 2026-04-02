@@ -1,7 +1,12 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0 150px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 150px;
   box-sizing: border-box;
   gap: 40px;
 }
