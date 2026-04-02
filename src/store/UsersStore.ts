@@ -1,50 +1,27 @@
 import { create } from 'zustand'
-
-import type { User } from '../entities/users/types'
-
-interface ArchivedUser extends User {
-  id: number
-}
-
 interface storeState {
-  users: User[] | null
-  archivedUsers: ArchivedUser[]
+  archivedUsers: number[]
+  hiddenUsers: number[]
+
   archiveUser: (userId: number) => void
   activateUser: (userId: number) => void
   hideUser: (userId: number) => void
 }
 
 export const useUserStore = create<storeState>((set) => ({
-  users: null,
+  hiddenUsers: [],
   archivedUsers: [],
 
-  archiveUser: (userId: number) =>
-    set((state) => {
-      const archivedUser = state.users?.find((user) => user.id === userId)
-      console.log('добавлен в архив', userId)
-
-      return {
-        users: state.users?.filter((user) => user.id !== userId),
-        archivedUsers: [
-          ...state.archivedUsers,
-          { ...archivedUser } as ArchivedUser
-        ]
-      }
-    }),
-  activateUser: (userId: number) =>
-    set((state) => {
-      const activateUser = state.archivedUsers?.find(
-        (user) => user.id === userId
-      )
-      return {
-        users: [...(state.users || []), { ...activateUser }],
-        archivedUsers: state.archivedUsers.filter((user) => user.id !== userId)
-      }
-    }),
-  hideUser: (userId: number) =>
-    set((state) => {
-      return {
-        users: state.users?.filter((user) => user.id !== userId)
-      }
-    })
+  archiveUser: (id) =>
+    set((state) => ({
+      archivedUsers: [...state.archivedUsers, id]
+    })),
+  activateUser: (id) =>
+    set((state) => ({
+      archivedUsers: state.archivedUsers.filter((i) => i !== id)
+    })),
+  hideUser: (id) =>
+    set((state) => ({
+      hiddenUsers: [...state.hiddenUsers, id]
+    }))
 }))
