@@ -1,4 +1,5 @@
 import { useUserStore } from '../../store/UsersStore'
+import DropdownMenu from './DropdownMenu'
 
 const CardsSection = ({ users }) => {
   const { archiveUser, activateUser, hideUser, archivedUsers } = useUserStore()
@@ -9,9 +10,12 @@ const CardsSection = ({ users }) => {
       {users.map((user: any) => (
         <div key={user.id}>
           {user.name}
-          <button onClick={() => archiveUser(user.id)}>архивировать</button>
-          <button onClick={() => activateUser(user.id)}>активировать</button>
-          <button onClick={() => hideUser(user.id)}>скрыть</button>
+          <DropdownMenu
+            activateUser={activateUser}
+            archiveUser={archiveUser}
+            hideUser={hideUser}
+            userId={user.id}
+          />
         </div>
       ))}
     </>
