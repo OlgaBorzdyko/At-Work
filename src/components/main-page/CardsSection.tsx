@@ -9,9 +9,23 @@ const CardsSection = ({ users }) => {
   const activeUsers = users.filter(
     (user) => !archivedUsers.includes(user.id) && !hiddenUsers.includes(user.id)
   )
+  const archivedUsersArr = users.filter(
+    (user) => archivedUsers.includes(user.id) && !hiddenUsers.includes(user.id)
+  )
   return (
     <>
+      <div>Активные</div>
       {activeUsers.map((user: any) => (
+        <UserCard
+          activateUser={activateUser}
+          archiveUser={archiveUser}
+          hideUser={hideUser}
+          key={user.id}
+          user={user}
+        />
+      ))}
+      <div>Архив</div>
+      {archivedUsersArr.map((user: any) => (
         <UserCard
           activateUser={activateUser}
           archiveUser={archiveUser}
