@@ -19,7 +19,7 @@ export const useUserStore = create<storeState>((set) => ({
   archiveUser: (userId: number) =>
     set((state) => {
       const archivedUser = state.users?.find((user) => user.id === userId)
-      console.log('Пользователь добавлен в архив', archivedUser)
+      console.log('Пользователь добавлен в архив', userId)
 
       return {
         archivedUsers: [
