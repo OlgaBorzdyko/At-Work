@@ -2,7 +2,7 @@ import DropdownMenu from './DropdownMenu'
 
 const UserCard = ({ user, archiveUser, activateUser, hideUser }) => {
   return (
-    <>
+    <div className="card">
       <div>{user.name}</div>
       <div>{user.companyName}</div>
       <div>{user.city}</div>
@@ -12,7 +12,7 @@ const UserCard = ({ user, archiveUser, activateUser, hideUser }) => {
         hideUser={hideUser}
         userId={user.id}
       />
-    </>
+    </div>
   )
 }
 export default UserCard
