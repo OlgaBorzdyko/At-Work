@@ -1,20 +1,10 @@
-$pr-color: #fff;
-$second-color: #0a0a0a;
-$fz-big: 60px;
-$pd: 50px;
-
-* {
-  box-sizing: border-box;
-  font-weight: 500;
-  margin: 0;
-  padding: 0;
-}
+@use './variables' as vars;
 
 body {
-  position: relative;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  background-color: vars.$bg-color;
+}
+
+.card {
+  background-color: vars.$card-bg-color;
+  border-radius: 16px;
 }
