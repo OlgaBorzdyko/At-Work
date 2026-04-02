@@ -11,6 +11,7 @@ interface storeState {
   archivedUsers: ArchivedUser[]
   archiveUser: (userId: number) => void
   activateUser: (userId: number) => void
+  hideUser: (userId: number) => void
 }
 
 export const useUserStore = create<storeState>((set) => ({
@@ -38,6 +39,12 @@ export const useUserStore = create<storeState>((set) => ({
       return {
         users: [...(state.users || []), { ...activateUser }],
         archivedUsers: state.archivedUsers.filter((user) => user.id !== userId)
+      }
+    }),
+  hideUser: (userId: number) =>
+    set((state) => {
+      return {
+        users: state.users?.filter((user) => user.id !== userId)
       }
     })
 }))
