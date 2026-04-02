@@ -14,7 +14,9 @@ export const useUserStore = create<storeState>((set) => ({
 
   archiveUser: (id) =>
     set((state) => ({
-      archivedUsers: [...state.archivedUsers, id]
+      archivedUsers: state.archivedUsers.includes(id)
+        ? state.archivedUsers
+        : [...state.archivedUsers, id]
     })),
   activateUser: (id) =>
     set((state) => ({
