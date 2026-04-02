@@ -1,6 +1,6 @@
 import { useUserStore } from '../../store/UsersStore'
 
-const UserCard = ({ users }) => {
+const CardsSection = ({ users }) => {
   const { archiveUser, activateUser, hideUser, archivedUsers } = useUserStore()
   console.log('в архиве:', archivedUsers)
   console.log(users)
@@ -17,4 +17,4 @@ const UserCard = ({ users }) => {
     </>
   )
 }
-export default UserCard
+export default CardsSection

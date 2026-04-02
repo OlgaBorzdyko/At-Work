@@ -1,4 +1,4 @@
-import UserCard from '../components/main-page/UserCard'
+import CardsSection from '../components/main-page/CardsSection'
 import { useUsers } from '../entities/users/hooks'
 
 const MainPage = () => {
@@ -10,7 +10,7 @@ const MainPage = () => {
   console.log(users)
   return (
     <>
-      <UserCard users={users || []} />
+      <CardsSection users={users || []} />
     </>
   )
 }
