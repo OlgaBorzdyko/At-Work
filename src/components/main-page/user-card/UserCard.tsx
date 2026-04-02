@@ -1,4 +1,4 @@
-import DropdownMenu from '../DropdownMenu'
+import DropdownMenu from '../dropdown-menu/DropdownMenu'
 import styles from './UserCard.module.scss'
 
 const UserCard = ({ user, archiveUser, activateUser, hideUser }) => {
