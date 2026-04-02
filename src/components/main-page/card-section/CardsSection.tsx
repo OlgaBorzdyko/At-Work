@@ -1,5 +1,6 @@
-import { useUserStore } from '../../store/UsersStore'
-import UserCard from './UserCard'
+import { useUserStore } from '../../../store/UsersStore'
+import UserCard from '../user-card/UserCard'
+import styles from './cardSection.module.scss'
 
 const CardsSection = ({ users }) => {
   const { archiveUser, activateUser, hideUser, archivedUsers, hiddenUsers } =
@@ -13,7 +14,7 @@ const CardsSection = ({ users }) => {
     (user) => archivedUsers.includes(user.id) && !hiddenUsers.includes(user.id)
   )
   return (
-    <>
+    <div className={styles.container}>
       <div>Активные</div>
       {activeUsers.map((user: any) => (
         <UserCard
@@ -34,7 +35,7 @@ const CardsSection = ({ users }) => {
           user={user}
         />
       ))}
-    </>
+    </div>
   )
 }
 export default CardsSection

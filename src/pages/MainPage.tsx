@@ -1,4 +1,4 @@
-import CardsSection from '../components/main-page/CardsSection'
+import CardsSection from '../components/main-page/card-section/CardsSection'
 import { useUsers } from '../entities/users/hooks'
 
 const MainPage = () => {
