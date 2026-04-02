@@ -1,23 +1,24 @@
 import { useUserStore } from '../../store/UsersStore'
-import DropdownMenu from './DropdownMenu'
+import UserCard from './UserCard'
 
 const CardsSection = ({ users }) => {
-  const { archiveUser, activateUser, hideUser, archivedUsers, hiddenUsers } = useUserStore()
+  const { archiveUser, activateUser, hideUser, archivedUsers, hiddenUsers } =
+    useUserStore()
   console.log('в архиве:', archivedUsers)
   console.log(users)
-  const activeUsers = users.filter((user) => !archivedUsers.includes(user.id) && !hiddenUsers.includes(user.id))
+  const activeUsers = users.filter(
+    (user) => !archivedUsers.includes(user.id) && !hiddenUsers.includes(user.id)
+  )
   return (
     <>
-      {users.map((user: any) => (
-        <div key={user.id}>
-          {user.name}
-          <DropdownMenu
-            activateUser={activateUser}
-            archiveUser={archiveUser}
-            hideUser={hideUser}
-            userId={user.id}
-          />
-        </div>
+      {activeUsers.map((user: any) => (
+        <UserCard
+          activateUser={activateUser}
+          archiveUser={archiveUser}
+          hideUser={hideUser}
+          key={user.id}
+          user={user}
+        />
       ))}
     </>
   )
