@@ -1,0 +1,10 @@
+@use '@styles/variables' as vars;
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  width: 100%;
+  background-color: vars.$card-bg-color;
+}

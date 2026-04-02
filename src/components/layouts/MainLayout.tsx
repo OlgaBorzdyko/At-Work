@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 
-import TopBar from './TopBar'
+import TopBar from './topbar/TopBar'
 
 const MainLayout = () => {
   return (
